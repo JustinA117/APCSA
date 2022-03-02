@@ -2,27 +2,60 @@ import java.util.ArrayList;
 import java.util.Scanner;
 class Main {
   public static void main(String[] args) {
-  boolean playAgain = true; 
   Scanner sc = new Scanner(System.in);
-    
-
+  boolean conPlay = true; 
+  String holdingString = ""; /* this keeps the old element saved so it does not disappear similar to how we did with the play cards where we had to keep the eleemnt we moved saves*/
+    int index = 0; 
   ArrayList<String> typesOfColor = new ArrayList<String>();
     typesOfColor.add("Blue");
     typesOfColor.add("Red");
     typesOfColor.add("Green");
     typesOfColor.add("Orange");
     typesOfColor.add("Purple");
-  String answer; 
-  int index = 0; 
-      while (playAgain == true)
-      {
-      System.out.println(typesOfColors);
-      System.out.println("Would you like to (a)dd, (i)nsert, (r)emove, re(p)lace, or (q)uit?");
+
+      while (conPlay == true)
+      { 
+      String answer = "";
+      System.out.println(typesOfColor);
+      System.out.println("Would you like to (a)dd, (i)nsert, (r)emove, re(p)lace, or (q)uit?"); 
         answer = sc.nextLine();
-      }
-    if (answer == a)
+      
+    if (answer.equals("a"))
     {
-      System.out.println("What color would you like to add");
+      System.out.println("What color would you like to add"); 
+      typesOfColor.add(sc.nextLine()); 
     }
-  }
-}
+    else if (answer.equals("i"))
+      {
+  System.out.println("Enter a color: ");
+          holdingString = sc.nextLine();
+          System.out.println("Enter a position: ");
+          index = sc.nextInt();
+          typesOfColor.add(index, holdingString); // add method from 3.7.2
+     }
+         else if (answer.equals("r"))
+        {
+      
+          System.out.println("Enter a position: ");
+          index = sc.nextInt();
+          typesOfColor.remove(index); // remove method that Removes the element from position index
+        }
+         else if (answer.equals("p"))
+        {
+          System.out.println("Enter a color: ");
+          holdingString = sc.nextLine();
+          System.out.println("Enter a position: ");
+          index = sc.nextInt();
+          typesOfColor.set(index,holdingString); // set method from pltw that  replacesthe element at position index with obj
+        }
+         else if (answer.equals("q"))
+         { conPlay = false;
+        }
+        else {
+          System.out.println("Try again, the input you entered was not a valid response");
+        }
+    
+    
+  }//closes while loop
+    } //main class end
+} //end
