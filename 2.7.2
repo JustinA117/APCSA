@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 class Main {
   public static void main(String[] args) {
-  Scanner sc = new Scanner(System.in);
   boolean conPlay = true; 
   String holdingString = ""; /* this keeps the old element saved so it does not disappear similar to how we did with the play cards where we had to keep the eleemnt we moved saves*/
     int index = 0; 
@@ -15,6 +14,8 @@ class Main {
 
       while (conPlay == true)
       { 
+          Scanner sc = new Scanner(System.in);
+
       String answer = "";
       System.out.println(typesOfColor);
       System.out.println("Would you like to (a)dd, (i)nsert, (r)emove, re(p)lace, or (q)uit?"); 
@@ -38,7 +39,7 @@ class Main {
       
           System.out.println("Enter a position: ");
           index = sc.nextInt();
-          typesOfColor.remove(index); // remove method that Removes the element from position index
+          typesOfColor.remove(index); // remove method that Removes the element from                                       //position index
         }
          else if (answer.equals("p"))
         {
@@ -46,7 +47,7 @@ class Main {
           holdingString = sc.nextLine();
           System.out.println("Enter a position: ");
           index = sc.nextInt();
-          typesOfColor.set(index,holdingString); // set method from pltw that  replacesthe element at position index with obj
+          typesOfColor.set(index,holdingString); // set method from pltw that                                          // replacesthe element at position index with obj
         }
          else if (answer.equals("q"))
          { conPlay = false;
